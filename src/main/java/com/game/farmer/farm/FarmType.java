@@ -1,13 +1,14 @@
 package com.game.farmer.farm;
 
 /**
- * <h1>Farm</h1>
+ * <h1>FarmType</h1>
  * <br>
  * <p/>
- * Creation date: 29.02.2020
+ * Creation date: 01.03.2020
  *
  * @author miba <a href="http://www.ailleron.com">AILLERON S.A.</a>
  **/
-public class Farm {
-    private FarmType farmType;
+public enum FarmType {
+    MAIN,
+    PLAYER
 }
