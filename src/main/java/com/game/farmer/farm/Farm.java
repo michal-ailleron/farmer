@@ -9,5 +9,5 @@ package com.game.farmer.farm;
  * @author miba <a href="http://www.ailleron.com">AILLERON S.A.</a>
  **/
 public class Farm {
-    private FarmType farmType;
+    
 }
