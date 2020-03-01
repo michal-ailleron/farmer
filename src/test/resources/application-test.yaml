@@ -1,0 +1,15 @@
+farm:
+  rabbit:
+    size: 60
+  sheep:
+    size: 24
+  pig:
+    size: 20
+  cow:
+    size: 12
+  horse:
+    size: 6
+  small-dog:
+    size: 4
+  big-dog:
+    size: 2
