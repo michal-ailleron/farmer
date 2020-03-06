@@ -16,6 +16,7 @@ class FarmFactoryTest {
     private FarmFactory farmFactory;
     @Autowired
     private FarmProperties farmProperties;
+
     @Test
     void should_return_correct_farm_type() {
         //when
@@ -33,5 +34,10 @@ class FarmFactoryTest {
         //then
         assertEquals(farmProperties.getRabbit().getSize(), mainFarm.getRabbitBox().getSize());
         assertEquals(farmProperties.getSheep().getSize(), mainFarm.getSheepBox().getSize());
+        assertEquals(farmProperties.getPig().getSize(), mainFarm.getPigBox().getSize());
+        assertEquals(farmProperties.getCow().getSize(), mainFarm.getCowBox().getSize());
+        assertEquals(farmProperties.getHorse().getSize(), mainFarm.getHorseBox().getSize());
+        assertEquals(farmProperties.getSmallDog().getSize(), mainFarm.getSmallDogBox().getSize());
+        assertEquals(farmProperties.getBigDog().getSize(), mainFarm.getBigDogBox().getSize());
     }
 }

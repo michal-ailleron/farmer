@@ -1,7 +1,6 @@
 package com.game.farmer.farm;
 
-import com.game.farmer.farm.box.RabbitBox;
-import com.game.farmer.farm.box.SheepBox;
+import com.game.farmer.farm.box.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +18,11 @@ public abstract class Farm {
     private final FarmType farmType;
     private RabbitBox rabbitBox;
     private SheepBox sheepBox;
+    private PigBox pigBox;
+    private CowBox cowBox;
+    private HorseBox horseBox;
+    private SmallDogBox smallDogBox;
+    private BigDogBox bigDogBox;
 
     public Farm(FarmType farmType) {
         this.farmType = farmType;
@@ -27,10 +31,21 @@ public abstract class Farm {
     protected void fillBoxes() {
         rabbitBox.fulfilledBox();
         sheepBox.fulfilledBox();
+        pigBox.fulfilledBox();
+        cowBox.fulfilledBox();
+        horseBox.fulfilledBox();
+        smallDogBox.fulfilledBox();
+        bigDogBox.fulfilledBox();
+
     }
 
     protected void clearBoxes() {
         rabbitBox.clearBox();
         sheepBox.clearBox();
+        pigBox.clearBox();
+        cowBox.clearBox();
+        horseBox.clearBox();
+        smallDogBox.clearBox();
+        bigDogBox.clearBox();
     }
 }

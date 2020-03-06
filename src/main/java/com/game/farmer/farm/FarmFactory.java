@@ -1,8 +1,7 @@
 package com.game.farmer.farm;
 
 import com.game.farmer.configuration.FarmProperties;
-import com.game.farmer.farm.box.RabbitBox;
-import com.game.farmer.farm.box.SheepBox;
+import com.game.farmer.farm.box.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -37,6 +36,11 @@ public class FarmFactory {
         return new FarmBuilder(farm)
                 .rabbitBox(farmProperties.getRabbit().getSize())
                 .sheepBox(farmProperties.getSheep().getSize())
+                .pigBox(farmProperties.getPig().getSize())
+                .cowBox(farmProperties.getCow().getSize())
+                .horseBox(farmProperties.getHorse().getSize())
+                .smallDogBox(farmProperties.getSmallDog().getSize())
+                .bigDogBox(farmProperties.getBigDog().getSize())
                 .build();
     }
 
@@ -55,6 +59,31 @@ public class FarmFactory {
 
         public FarmBuilder sheepBox(int size) {
             this.farm.setSheepBox(new SheepBox(size));
+            return this;
+        }
+
+        public FarmBuilder pigBox(int size) {
+            this.farm.setPigBox(new PigBox(size));
+            return this;
+        }
+
+        public FarmBuilder cowBox(int size) {
+            this.farm.setCowBox(new CowBox(size));
+            return this;
+        }
+
+        public FarmBuilder horseBox(int size) {
+            this.farm.setHorseBox(new HorseBox(size));
+            return this;
+        }
+
+        public FarmBuilder smallDogBox(int size) {
+            this.farm.setSmallDogBox(new SmallDogBox(size));
+            return this;
+        }
+
+        public FarmBuilder bigDogBox(int size) {
+            this.farm.setBigDogBox(new BigDogBox(size));
             return this;
         }
 
