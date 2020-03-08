@@ -42,13 +42,13 @@ class FarmFactoryTest {
         //given
         final Farm mainFarm = farmFactory.createMainFarm();
         //then
-        assertEquals(farmProperties.getRabbit().getSize(), mainFarm.getRabbitBox().getAnimals().size());
-        assertEquals(farmProperties.getSheep().getSize(), mainFarm.getSheepBox().getAnimals().size());
-        assertEquals(farmProperties.getPig().getSize(), mainFarm.getPigBox().getAnimals().size());
-        assertEquals(farmProperties.getCow().getSize(), mainFarm.getCowBox().getAnimals().size());
-        assertEquals(farmProperties.getHorse().getSize(), mainFarm.getHorseBox().getAnimals().size());
-        assertEquals(farmProperties.getSmallDog().getSize(), mainFarm.getSmallDogBox().getAnimals().size());
-        assertEquals(farmProperties.getBigDog().getSize(), mainFarm.getBigDogBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getRabbit(), mainFarm.getRabbitBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getSheep(), mainFarm.getSheepBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getPig(), mainFarm.getPigBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getCow(), mainFarm.getCowBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getHorse(), mainFarm.getHorseBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getSmallDog(), mainFarm.getSmallDogBox().getAnimals().size());
+        assertEquals(farmProperties.getBoxSize().getBigDog(), mainFarm.getBigDogBox().getAnimals().size());
     }
 
     @Test
@@ -67,12 +67,12 @@ class FarmFactoryTest {
     }
 
     private void assertBoxSize(Farm mainFarm) {
-        assertEquals(farmProperties.getRabbit().getSize(), mainFarm.getRabbitBox().getSize());
-        assertEquals(farmProperties.getSheep().getSize(), mainFarm.getSheepBox().getSize());
-        assertEquals(farmProperties.getPig().getSize(), mainFarm.getPigBox().getSize());
-        assertEquals(farmProperties.getCow().getSize(), mainFarm.getCowBox().getSize());
-        assertEquals(farmProperties.getHorse().getSize(), mainFarm.getHorseBox().getSize());
-        assertEquals(farmProperties.getSmallDog().getSize(), mainFarm.getSmallDogBox().getSize());
-        assertEquals(farmProperties.getBigDog().getSize(), mainFarm.getBigDogBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getRabbit(), mainFarm.getRabbitBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getSheep(), mainFarm.getSheepBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getPig(), mainFarm.getPigBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getCow(), mainFarm.getCowBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getHorse(), mainFarm.getHorseBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getSmallDog(), mainFarm.getSmallDogBox().getSize());
+        assertEquals(farmProperties.getBoxSize().getBigDog(), mainFarm.getBigDogBox().getSize());
     }
 }

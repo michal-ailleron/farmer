@@ -8,16 +8,18 @@ import com.game.farmer.dice.DiceType;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@ActiveProfiles("test")
 @TestPropertySource("classpath:application-test.yaml")
 class FarmerApplicationTests {
 
@@ -70,13 +72,26 @@ class FarmerApplicationTests {
 
     @Test
     void farm_properties_load_test() {
-        assertEquals(60, farmProperties.getRabbit().getSize(), "Incorrectly bound rabbit.size property");
-        assertEquals(24, farmProperties.getSheep().getSize(), "Incorrectly bound sheep.size property");
-        assertEquals(20, farmProperties.getPig().getSize(), "Incorrectly bound pig.size property");
-        assertEquals(12, farmProperties.getCow().getSize(), "Incorrectly bound cow.size property");
-        assertEquals(6, farmProperties.getHorse().getSize(), "Incorrectly bound horse.size property");
-        assertEquals(4, farmProperties.getSmallDog().getSize(), "Incorrectly bound small-dog.size property");
-        assertEquals(2, farmProperties.getBigDog().getSize(), "Incorrectly bound big-dog.size property");
+        assertEquals(60, farmProperties.getBoxSize().getRabbit(), "Incorrectly bound rabbit.size property");
+        assertEquals(24, farmProperties.getBoxSize().getSheep(), "Incorrectly bound sheep.size property");
+        assertEquals(20, farmProperties.getBoxSize().getPig(), "Incorrectly bound pig.size property");
+        assertEquals(12, farmProperties.getBoxSize().getCow(), "Incorrectly bound cow.size property");
+        assertEquals(6, farmProperties.getBoxSize().getHorse(), "Incorrectly bound horse.size property");
+        assertEquals(4, farmProperties.getBoxSize().getSmallDog(), "Incorrectly bound small-dog.size property");
+        assertEquals(2, farmProperties.getBoxSize().getBigDog(), "Incorrectly bound big-dog.size property");
+    }
+
+    @Test
+    void exchange_table_configuration_test() {
+        final EnumMap<AnimalType, Integer> exchange = farmProperties.getExchange();
+        //then
+        assertFalse(exchange.isEmpty());
+        assertEquals(6, exchange.get(AnimalType.SHEEP));
+        assertEquals(6, exchange.get(AnimalType.SMALL_DOG));
+        assertEquals(12, exchange.get(AnimalType.PIG));
+        assertEquals(36, exchange.get(AnimalType.COW));
+        assertEquals(72, exchange.get(AnimalType.HORSE));
+        assertEquals(36, exchange.get(AnimalType.BIG_DOG));
     }
 
     private long countAnimal(final List<Animal> animals, final AnimalType animalType) {

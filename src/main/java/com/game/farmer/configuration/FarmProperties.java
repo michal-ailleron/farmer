@@ -1,9 +1,12 @@
 package com.game.farmer.configuration;
 
+import com.game.farmer.animals.AnimalType;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.EnumMap;
 
 /**
  * <h1>FarmConfiguration</h1>
@@ -19,13 +22,20 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 public class FarmProperties {
 
-    private Rabbit rabbit;
-    private Sheep sheep;
-    private Pig pig;
-    private Cow cow;
-    private Horse horse;
-    private SmallDog smallDog;
-    private BigDog bigDog;
+    private BoxSize boxSize;
+    private EnumMap<AnimalType, Integer> exchange;
+
+    @Setter
+    @Getter
+    public static class BoxSize {
+        private Integer rabbit;
+        private Integer sheep;
+        private Integer pig;
+        private Integer cow;
+        private Integer horse;
+        private Integer smallDog;
+        private Integer bigDog;
+    }
 
     @Getter
     @Setter

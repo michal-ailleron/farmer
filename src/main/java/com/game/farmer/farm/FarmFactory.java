@@ -34,13 +34,13 @@ public class FarmFactory {
 
     private Farm createFarm(final Farm farm) {
         return new FarmBuilder(farm)
-                .rabbitBox(farmProperties.getRabbit().getSize())
-                .sheepBox(farmProperties.getSheep().getSize())
-                .pigBox(farmProperties.getPig().getSize())
-                .cowBox(farmProperties.getCow().getSize())
-                .horseBox(farmProperties.getHorse().getSize())
-                .smallDogBox(farmProperties.getSmallDog().getSize())
-                .bigDogBox(farmProperties.getBigDog().getSize())
+                .rabbitBox(farmProperties.getBoxSize().getRabbit())
+                .sheepBox(farmProperties.getBoxSize().getSheep())
+                .pigBox(farmProperties.getBoxSize().getPig())
+                .cowBox(farmProperties.getBoxSize().getCow())
+                .horseBox(farmProperties.getBoxSize().getHorse())
+                .smallDogBox(farmProperties.getBoxSize().getSmallDog())
+                .bigDogBox(farmProperties.getBoxSize().getBigDog())
                 .build();
     }
 

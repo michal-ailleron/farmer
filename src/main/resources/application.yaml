@@ -1,15 +1,19 @@
 farm:
-  rabbit:
-    size: 60
-  sheep:
-    size: 24
-  pig:
-    size: 20
-  cow:
-    size: 12
-  horse:
-    size: 6
-  small-dog:
-    size: 4
-  big-dog:
-    size: 2
+  box-size:
+    rabbit: 60
+    sheep: 24
+    pig: 20
+    cow: 12
+    horse: 6
+    small-dog: 4
+    big-dog: 2
+  exchange: # base value is rabbit
+    sheep: 6
+    pig: 12
+    cow: 36
+    horse: 72
+    small-dog: 6
+    big-dog: 36
+spring:
+  profiles:
+    active: production
