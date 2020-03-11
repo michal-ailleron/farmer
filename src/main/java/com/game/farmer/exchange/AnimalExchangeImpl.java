@@ -1,5 +1,11 @@
 package com.game.farmer.exchange;
 
+import com.game.farmer.animals.Animal;
+import com.game.farmer.farm.Farm;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
 /**
  * <h1>AnimalExchangeImpl</h1>
  * <br>
@@ -8,5 +14,10 @@ package com.game.farmer.exchange;
  *
  * @author miba <a href="http://www.ailleron.com">AILLERON S.A.</a>
  **/
-public class AnimalExchangeImpl {
+@Component
+public class AnimalExchangeImpl implements AnimalExchange {
+    @Override
+    public List<Animal> tradeView(final Farm farm) {
+        return null;
+    }
 }
