@@ -34,12 +34,12 @@ public class FarmFactory {
     }
 
     private void setFarmBoxSize(final Farm farm) {
-        farm.getBoxMap().put(BoxType.RABBIT,new RabbitBox(farmProperties.getRabbit().getSize()));
-        farm.getBoxMap().put(BoxType.SHEEP,new SheepBox(farmProperties.getSheep().getSize()));
-        farm.getBoxMap().put(BoxType.PIG,new PigBox(farmProperties.getPig().getSize()));
-        farm.getBoxMap().put(BoxType.COW,new CowBox(farmProperties.getCow().getSize()));
-        farm.getBoxMap().put(BoxType.HORSE,new HorseBox(farmProperties.getHorse().getSize()));
-        farm.getBoxMap().put(BoxType.SMALL_DOG,new SmallDogBox(farmProperties.getSmallDog().getSize()));
-        farm.getBoxMap().put(BoxType.BIG_DOG,new BigDogBox(farmProperties.getBigDog().getSize()));
+        farm.getBoxMap().put(BoxType.RABBIT, new RabbitBox(farmProperties.getBoxSize().getRabbit()));
+        farm.getBoxMap().put(BoxType.SHEEP, new SheepBox(farmProperties.getBoxSize().getSheep()));
+        farm.getBoxMap().put(BoxType.PIG, new PigBox(farmProperties.getBoxSize().getPig()));
+        farm.getBoxMap().put(BoxType.COW, new CowBox(farmProperties.getBoxSize().getCow()));
+        farm.getBoxMap().put(BoxType.HORSE, new HorseBox(farmProperties.getBoxSize().getHorse()));
+        farm.getBoxMap().put(BoxType.SMALL_DOG, new SmallDogBox(farmProperties.getBoxSize().getSmallDog()));
+        farm.getBoxMap().put(BoxType.BIG_DOG, new BigDogBox(farmProperties.getBoxSize().getBigDog()));
     }
 }
