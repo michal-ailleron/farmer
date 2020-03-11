@@ -19,77 +19,27 @@ public class FarmFactory {
     private final FarmProperties farmProperties;
 
     public Farm createMainFarm() {
-        final Farm mainFarm = createFarm(new MainFarm());
+        final Farm mainFarm = new MainFarm();
+        setFarmBoxSize(mainFarm);
         mainFarm.fillBoxes();
 
         return mainFarm;
     }
 
     public Farm createPlayerFarm() {
-        final Farm playerFarm = createFarm(new PlayerFarm());
-        playerFarm.clearBoxes();
+        final Farm playerFarm = new PlayerFarm();
+        setFarmBoxSize(playerFarm);
 
         return playerFarm;
     }
 
-    private Farm createFarm(final Farm farm) {
-        return new FarmBuilder(farm)
-                .rabbitBox(farmProperties.getRabbit().getSize())
-                .sheepBox(farmProperties.getSheep().getSize())
-                .pigBox(farmProperties.getPig().getSize())
-                .cowBox(farmProperties.getCow().getSize())
-                .horseBox(farmProperties.getHorse().getSize())
-                .smallDogBox(farmProperties.getSmallDog().getSize())
-                .bigDogBox(farmProperties.getBigDog().getSize())
-                .build();
+    private void setFarmBoxSize(final Farm farm) {
+        farm.getBoxMap().put(BoxType.RABBIT,new RabbitBox(farmProperties.getRabbit().getSize()));
+        farm.getBoxMap().put(BoxType.SHEEP,new SheepBox(farmProperties.getSheep().getSize()));
+        farm.getBoxMap().put(BoxType.PIG,new PigBox(farmProperties.getPig().getSize()));
+        farm.getBoxMap().put(BoxType.COW,new CowBox(farmProperties.getCow().getSize()));
+        farm.getBoxMap().put(BoxType.HORSE,new HorseBox(farmProperties.getHorse().getSize()));
+        farm.getBoxMap().put(BoxType.SMALL_DOG,new SmallDogBox(farmProperties.getSmallDog().getSize()));
+        farm.getBoxMap().put(BoxType.BIG_DOG,new BigDogBox(farmProperties.getBigDog().getSize()));
     }
-
-
-    public static class FarmBuilder {
-        private Farm farm;
-
-        public FarmBuilder(Farm farm) {
-            this.farm = farm;
-        }
-
-        public FarmBuilder rabbitBox(int size) {
-            this.farm.setRabbitBox(new RabbitBox(size));
-            return this;
-        }
-
-        public FarmBuilder sheepBox(int size) {
-            this.farm.setSheepBox(new SheepBox(size));
-            return this;
-        }
-
-        public FarmBuilder pigBox(int size) {
-            this.farm.setPigBox(new PigBox(size));
-            return this;
-        }
-
-        public FarmBuilder cowBox(int size) {
-            this.farm.setCowBox(new CowBox(size));
-            return this;
-        }
-
-        public FarmBuilder horseBox(int size) {
-            this.farm.setHorseBox(new HorseBox(size));
-            return this;
-        }
-
-        public FarmBuilder smallDogBox(int size) {
-            this.farm.setSmallDogBox(new SmallDogBox(size));
-            return this;
-        }
-
-        public FarmBuilder bigDogBox(int size) {
-            this.farm.setBigDogBox(new BigDogBox(size));
-            return this;
-        }
-
-        public Farm build() {
-            return this.farm;
-        }
-    }
-
 }

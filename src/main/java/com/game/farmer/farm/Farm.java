@@ -1,8 +1,11 @@
 package com.game.farmer.farm;
 
-import com.game.farmer.farm.box.*;
+import com.game.farmer.farm.box.Box;
+import com.game.farmer.farm.box.BoxType;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.EnumMap;
 
 /**
  * <h1>Farm</h1>
@@ -16,36 +19,17 @@ import lombok.Setter;
 @Setter
 public abstract class Farm {
     private final FarmType farmType;
-    private RabbitBox rabbitBox;
-    private SheepBox sheepBox;
-    private PigBox pigBox;
-    private CowBox cowBox;
-    private HorseBox horseBox;
-    private SmallDogBox smallDogBox;
-    private BigDogBox bigDogBox;
+    private final EnumMap<BoxType, Box> boxMap = new EnumMap<>(BoxType.class);
 
     public Farm(FarmType farmType) {
         this.farmType = farmType;
     }
 
     protected void fillBoxes() {
-        rabbitBox.fulfilledBox();
-        sheepBox.fulfilledBox();
-        pigBox.fulfilledBox();
-        cowBox.fulfilledBox();
-        horseBox.fulfilledBox();
-        smallDogBox.fulfilledBox();
-        bigDogBox.fulfilledBox();
-
+        boxMap.forEach((boxType, box) -> box.fulfilledBox());
     }
 
     protected void clearBoxes() {
-        rabbitBox.clearBox();
-        sheepBox.clearBox();
-        pigBox.clearBox();
-        cowBox.clearBox();
-        horseBox.clearBox();
-        smallDogBox.clearBox();
-        bigDogBox.clearBox();
+        boxMap.forEach((boxType, box) -> box.clearBox());
     }
 }
