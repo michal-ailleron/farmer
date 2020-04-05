@@ -4,6 +4,7 @@ import com.game.farmer.farm.box.Box;
 import com.game.farmer.farm.box.BoxType;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.EnumMap;
 
@@ -17,6 +18,7 @@ import java.util.EnumMap;
  **/
 @Getter
 @Setter
+@Slf4j
 public abstract class Farm {
     private final FarmType farmType;
     private final EnumMap<BoxType, Box> boxMap = new EnumMap<>(BoxType.class);
@@ -25,11 +27,20 @@ public abstract class Farm {
         this.farmType = farmType;
     }
 
-    protected void fillBoxes() {
+    public void fillBoxes() {
         boxMap.forEach((boxType, box) -> box.fulfilledBox());
     }
 
-    protected void clearBoxes() {
+    public void clearBoxes() {
         boxMap.forEach((boxType, box) -> box.clearBox());
+    }
+
+    public void addAnimalsToBox(final BoxType boxType, final int animalCount) {
+        final Box box = boxMap.get(boxType);
+        if(box == null){
+            log.info("Farm not contain box: {}", boxType);
+            return;
+        }
+        for (int i = 0; i < animalCount; i++) box.add();
     }
 }

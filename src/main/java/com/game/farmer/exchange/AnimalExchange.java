@@ -1,9 +1,9 @@
 package com.game.farmer.exchange;
 
-import com.game.farmer.animals.Animal;
 import com.game.farmer.farm.Farm;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <h1>AnimalExchange</h1>
@@ -14,5 +14,5 @@ import java.util.List;
  * @author miba <a href="http://www.ailleron.com">AILLERON S.A.</a>
  **/
 public interface AnimalExchange {
-    List<Animal> tradeView(final Farm farm);
+    Map<TradeBox,List<TradeBox>> tradeView(final Farm farm);
 }
