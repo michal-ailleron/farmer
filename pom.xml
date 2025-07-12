@@ -19,7 +19,7 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <!--        commons-->
-        <commons-lang3.version>3.9</commons-lang3.version>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <commons-collections4.version>4.4</commons-collections4.version>
     </properties>
 
